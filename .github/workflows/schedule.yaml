@@ -2,7 +2,7 @@ name: Bill clients
 
 on:
   schedule:
-    cron: "0 16 28 * *"
+    - cron: "0 16 29 * *"
 
 jobs:
   bill:
