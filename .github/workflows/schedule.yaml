@@ -1,0 +1,16 @@
+name: Bill clients
+
+on:
+  schedule:
+    cron: "0 16 28 * *"
+
+jobs:
+  bill:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "18"
+          cache: pnpm
+      - run: pnpm start
