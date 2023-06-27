@@ -1,0 +1,34 @@
+{
+  "username": "ivd-login",
+  "password": "ivd-password",
+  "discord": {
+    "enabled": true,
+    "id": "discord-id",
+    "webhookUrl": "discord-webhook-url"
+  },
+  "mailer": {
+    "enabled": false,
+    "host": "smtp.gmail.com",
+    "from": "contact@xetera.dev",
+    "port": 465,
+    "secure": true,
+    "auth": {
+      "user": "",
+      "pass": ""
+    }
+  },
+  "smsRouter": {
+    "secret": "..."
+  },
+  "invoices": [
+    {
+      "nationalId": "2222222222",
+      "companyName": "",
+      "companyAddress": "",
+      "serviceName": "Contractor Developer",
+      "billAmount": "",
+      "note": "",
+      "currency": "USD"
+    }
+  ]
+}
