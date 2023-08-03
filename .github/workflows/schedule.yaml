@@ -21,5 +21,6 @@ jobs:
           cache: pnpm
       - run: pnpm install
       - run: pnpm run build
-      - run: echo "${{ secrets.CONFIG }}" > config.json
+      - run: echo '${{ secrets.CONFIG }}' > config.json
+      - run: node ./mask.js ./config.json
       - run: pnpm run start
