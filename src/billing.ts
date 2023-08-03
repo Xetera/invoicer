@@ -124,7 +124,12 @@ export async function Billing(opts: BillingOptions) {
     console.log("[invoice] Checking existing invoices for", companyName)
     // there's a checkbox on the header too, we only wanna make sure we're waiting for the real results
     const checkbox = ".csc-table table tbody input[type=checkbox]"
-    await page.waitForSelector(checkbox)
+    try {
+      await page.waitForSelector(checkbox, { timeout: 3000 })
+    } catch (err) {
+      // no existing forms
+      return []
+    }
 
     const rows = await page
       // there are trs for thead too
