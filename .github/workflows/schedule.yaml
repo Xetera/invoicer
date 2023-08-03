@@ -21,4 +21,5 @@ jobs:
           cache: pnpm
       - run: pnpm install
       - run: pnpm run build
+      - run: echo "${{ secrets.CONFIG }}" > config.json
       - run: pnpm run start
