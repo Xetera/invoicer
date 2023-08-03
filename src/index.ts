@@ -52,7 +52,10 @@ async function main() {
 
     for (const invoice of config.invoices) {
       const forms = await checkExistingForms(invoice.companyName)
-      if (forms.length > 0) {
+      if (
+        forms.length > 0 &&
+        forms.every((form) => form.status === "approved")
+      ) {
         for (const form of forms) {
           console.log(
             `[invoice] An invoice for ${form.companyName} was already created on date ${form.date} with status [${form.status}]`
@@ -96,7 +99,10 @@ async function main() {
           ...invoiceSearchParams
         )
         const forms = await checkExistingForms(invoice.companyName)
-        const latestForm = maxBy(forms, (form) => form.date)
+        const latestForm = maxBy(
+          forms.filter((form) => form.status === "pending"),
+          (form) => form.date
+        )
         if (!latestForm) {
           throw new Error(
             "Created a form but couldn't find it. Race condition? Are we that good at filling invoices?"
