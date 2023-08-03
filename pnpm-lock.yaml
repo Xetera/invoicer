@@ -5,6 +5,15 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@types/lodash':
+    specifier: ^4.14.195
+    version: 4.14.195
+  '@types/node':
+    specifier: ^20.2.5
+    version: 20.2.5
+  '@types/nodemailer':
+    specifier: ^6.4.6
+    version: 6.4.6
   date-fns:
     specifier: ^2.30.0
     version: 2.30.0
@@ -40,15 +49,6 @@ devDependencies:
   '@swc/core':
     specifier: ^1.3.20
     version: 1.3.20
-  '@types/lodash':
-    specifier: ^4.14.195
-    version: 4.14.195
-  '@types/node':
-    specifier: ^20.2.5
-    version: 20.2.5
-  '@types/nodemailer':
-    specifier: ^6.4.6
-    version: 6.4.6
   rome:
     specifier: ^10.0.1
     version: 10.0.1
@@ -522,16 +522,17 @@ packages:
 
   /@types/lodash@4.14.195:
     resolution: {integrity: sha512-Hwx9EUgdwf2GLarOjQp5ZH8ZmblzcbTBC2wtQWNKARBSxM9ezRIAUpeDTgoQRAFB0+8CNWXVA9+MaSOzOF3nPg==}
-    dev: true
+    dev: false
 
   /@types/node@20.2.5:
     resolution: {integrity: sha512-JJulVEQXmiY9Px5axXHeYGLSjhkZEnD+MDPDGbCbIAbMslkKwmygtZFy1X6s/075Yo94sf8GuSlFfPzysQrWZQ==}
+    dev: false
 
   /@types/nodemailer@6.4.6:
     resolution: {integrity: sha512-pD6fL5GQtUKvD2WnPmg5bC2e8kWCAPDwMPmHe/ohQbW+Dy0EcHgZ2oCSuPlWNqk74LS5BVMig1SymQbFMPPK3w==}
     dependencies:
       '@types/node': 20.2.5
-    dev: true
+    dev: false
 
   /@types/ws@8.5.4:
     resolution: {integrity: sha512-zdQDHKUgcX/zBc4GrwsE/7dVdAD8JR4EuiAXiiUhhfyIJXXb2+PrGshFyeXWQPMmmZ2XxgaqclgpIC7eTXc1mg==}
