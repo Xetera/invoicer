@@ -30,5 +30,6 @@
       "note": "",
       "currency": "USD"
     }
-  ]
+  ],
+  "headless": false
 }

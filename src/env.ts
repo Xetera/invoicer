@@ -31,6 +31,7 @@ export const Config = z.object({
   // needs sms to work
   smsRouter: SmsConfig,
   invoices: z.array(Invoice),
+  headless: z.coerce.boolean().optional().default(true),
 })
 
 export type Invoice = z.infer<typeof Invoice>
