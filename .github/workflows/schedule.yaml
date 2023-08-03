@@ -19,5 +19,6 @@ jobs:
         with:
           node-version: "18"
           cache: pnpm
+      - run: pnpm install
       - run: pnpm run build
       - run: pnpm run start
