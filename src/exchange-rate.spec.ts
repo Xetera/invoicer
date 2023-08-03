@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest"
 import {
   exchangeRate as turkishExchangeRate,
   formatNumber,
-} from "./exchange-rate"
+} from "./exchange-rate.js"
 
 describe("exchange rate", () => {
   it("converts USD to TRY", async () => {

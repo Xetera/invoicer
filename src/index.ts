@@ -1,13 +1,14 @@
 import * as fs from "fs"
-import { Billing, BillingConfig, FOREIGN_TC_PLACEHOLDER } from "./billing"
-import { Webhook } from "./discord-webhook"
-import { exchangeRate } from "./exchange-rate"
-import { Mailer } from "./mailer"
-import { AugmentedInvoice, Invoice, readEnv } from "./env"
+import { Billing } from "./billing.js"
+import { Webhook } from "./discord-webhook.js"
+import { exchangeRate } from "./exchange-rate.js"
+import { Mailer } from "./mailer.js"
+import { AugmentedInvoice, Invoice, readEnv } from "./env.js"
 import { sub, add } from "date-fns"
-import { maxBy } from "lodash"
-import { Sms } from "./sms"
+import Lodash from "lodash"
+import { Sms } from "./sms.js"
 import { inspect } from "node:util"
+const { maxBy } = Lodash
 
 async function invoiceFields(invoice: Invoice): Promise<AugmentedInvoice> {
   return {
@@ -81,8 +82,9 @@ async function main() {
         await confirmInvoiceCreation()
       } catch (err) {
         console.error(err)
+        const message = err instanceof Error ? err.message : String(err)
         webhook.send((id) => ({
-          content: `<@${id}> Error occurred while creating invoice:\n${err.message}`,
+          content: `<@${id}> Error occurred while creating invoice:\n${message}`,
           allowedMentions: {
             users: id ? [id] : [],
           },
@@ -133,8 +135,9 @@ async function main() {
       }
     }
   } catch (err) {
+    const message = err instanceof Error ? err.message : String(err)
     webhook.send((id) => ({
-      content: `<@${id}> Error occurred while processing some step of the invoice:\n${err.message}`,
+      content: `<@${id}> Error occurred while processing some step of the invoice:\n${message}`,
       allowedMentions: {
         users: id ? [id] : [],
       },

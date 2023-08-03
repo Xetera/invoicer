@@ -1,5 +1,5 @@
 import { chromium, ElementHandle, LaunchOptions, Page } from "playwright"
-import { formatNumber } from "./exchange-rate"
+import { formatNumber } from "./exchange-rate.js"
 import { sub, add, format, parse } from "date-fns"
 
 const form = {

@@ -2,6 +2,7 @@
   "name": "invoice-abroad",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "license": "MIT",
   "dependencies": {
     "date-fns": "^2.30.0",
@@ -16,7 +17,9 @@
     "zod": "^3.21.4"
   },
   "scripts": {
-    "start": "tsx -r dotenv/config src/index.ts",
+    "start": "node ./dist/index.js",
+    "dev": "tsx -r dotenv/config src/index.ts",
+    "build": "tsc",
     "test": "vitest"
   },
   "devDependencies": {

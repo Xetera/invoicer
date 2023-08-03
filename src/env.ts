@@ -1,6 +1,6 @@
 import { z } from "zod"
-import { MailerConfig } from "./mailer"
-import { SmsConfig } from "./sms"
+import { MailerConfig } from "./mailer.js"
+import { SmsConfig } from "./sms.js"
 
 export const Invoice = z.object({
   nationalId: z.string(),
