@@ -25,7 +25,7 @@ async function main() {
   const mailer = Mailer(config.mailer)
   const billing = await Billing({
     launch: {
-      headless: process.env.CI !== undefined,
+      headless: config.headless,
     },
   })
 
@@ -144,6 +144,7 @@ async function main() {
     }))
     console.error(err)
   }
+  process.exit(0)
 }
 
 main()
